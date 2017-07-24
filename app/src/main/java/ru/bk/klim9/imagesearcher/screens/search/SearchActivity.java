@@ -87,6 +87,10 @@ public class SearchActivity extends AppCompatActivity implements SearchView {
         requestPermission();
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+
+        if (savedInstanceState != null){
+            mLoadingView.hideLoading();
+        }
     }
 
     @Override
@@ -102,7 +106,6 @@ public class SearchActivity extends AppCompatActivity implements SearchView {
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-//        outState.putString();
         super.onSaveInstanceState(outState);
     }
 
