@@ -51,6 +51,8 @@ public class Image extends RealmObject{
 
     private String lon;
 
+    private String date;
+
 
     /**
      * No args constructor for use in serialization
@@ -188,5 +190,13 @@ public class Image extends RealmObject{
 
     public void setLon(String lon) {
         this.lon = lon;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

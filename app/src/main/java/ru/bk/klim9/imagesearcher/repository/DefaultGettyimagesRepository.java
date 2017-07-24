@@ -4,7 +4,9 @@ import android.location.Location;
 import android.support.annotation.NonNull;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -30,6 +32,7 @@ public class DefaultGettyimagesRepository implements GettyimagesRepository {
                     Realm.getDefaultInstance().executeTransaction(realm -> {
                         for (Image image: images){
                             image.setPhrase(phrase);
+                            image.setDate(getCurrentTime());
                             if (location != null){
                                 image.setLat(String.valueOf(location.getLatitude()));
                                 image.setLon(String.valueOf(location.getLongitude()));
@@ -55,6 +58,12 @@ public class DefaultGettyimagesRepository implements GettyimagesRepository {
         } else {
             return startList;
         }
+    }
+
+    private String getCurrentTime(){
+        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Kiev"));
+        String date = cal.getTime().toString();
+        return date;
     }
 
 }
