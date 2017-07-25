@@ -12,6 +12,7 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+        multiDexEnabled = true
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -61,5 +62,5 @@ dependencies {
     compile "com.squareup.picasso:picasso:$picassoVersion"
     compile "com.jakewharton.picasso:picasso2-okhttp3-downloader:$picassoDownloaderVersion"
 
-    compile "com.google.android.gms:play-services:$playServicesVersion"
+    compile "com.google.android.gms:play-services-location:$playServicesVersion"
 }
